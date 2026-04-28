@@ -153,7 +153,7 @@
 
 <!-- SKILLS -->
 <section id="skills">
-  <p class="sec-label reveal">// Expertise</p>
+  <p class="sec-label reveal">Expertise</p>
   <h2 class="sec-title reveal">Technical Skills</h2>
   <div class="skills-grid reveal">
     <div class="skill-pill"><div class="dot dot-purple"></div>Unity 3D / 2D</div>
@@ -177,7 +177,7 @@
 
 <!-- EXPERIENCE -->
 <section id="experience">
-  <p class="sec-label reveal">// Career</p>
+  <p class="sec-label reveal">Career</p>
   <h2 class="sec-title reveal">Work Experience</h2>
   <div class="reveal">
     <div class="tl-card">
@@ -212,7 +212,7 @@
 
 <!-- PROJECTS — all 19 from CV -->
 <section id="projects">
-  <p class="sec-label reveal">// Portfolio</p>
+  <p class="sec-label reveal">Portfolio</p>
   <h2 class="sec-title reveal">Featured Projects <span style="font-size:1rem;color:var(--sub);font-weight:400;">(21 projects)</span></h2>
   <div class="projects-grid reveal">
 
@@ -394,7 +394,7 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
-    <p class="sec-label reveal">// Connect</p>
+    <p class="sec-label reveal">Connect</p>
     <h2 class="sec-title reveal" style="margin:0 auto 1rem;">Let&rsquo;s Work Together</h2>
     <p class="reveal" style="color:var(--sub);font-size:1rem;">Open to senior Unity development roles, team lead positions, and exciting new game projects.</p>
     <div class="contact-grid reveal">
@@ -475,6 +475,42 @@ window.addEventListener('scroll', function() {
     a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--text)' : '';
   });
 });
+
+// ── VIDEO MODAL ──
+(function() {
+  var overlay  = document.getElementById('videoModal');
+  var iframe   = document.getElementById('videoModalIframe');
+  var titleEl  = document.getElementById('videoModalTitle');
+  var closeBtn = document.getElementById('videoModalClose');
+
+  if (!overlay) { console.warn('videoModal element not found'); return; }
+
+  function openVideo(ytId, title) {
+    iframe.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0';
+    titleEl.textContent = title || '';
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVideo() {
+    overlay.classList.remove('open');
+    iframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeVideo);
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeVideo();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeVideo();
+  });
+
+  document.querySelectorAll('[data-yt-id]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      openVideo(btn.getAttribute('data-yt-id'), btn.getAttribute('data-yt-title'));
+    });
+  });
+})();
 </script>
 </body>
 </html>
