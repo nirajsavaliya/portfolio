@@ -99,6 +99,39 @@
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
     .reveal.visible{opacity:1;transform:none}
     @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}section{padding:72px 20px}#hero{padding:100px 20px 60px}.hero-stats{gap:2rem}.projects-grid{grid-template-columns:1fr}.skills-grid{grid-template-columns:repeat(2,1fr)}.cv-card{flex-direction:column;padding:2rem}.cv-card-text h3{font-size:1.4rem}}
+
+    /* ── Watch Video Button ── */
+    .proj-actions{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;margin-top:auto}
+    .btn-play{
+      position:relative;
+      display:inline-flex;align-items:center;gap:.55rem;
+      padding:.55rem 1.2rem .55rem .55rem;
+      font-family:'Space Grotesk',sans-serif;font-size:.8rem;font-weight:700;
+      letter-spacing:.02em;color:#fff;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      border:none;border-radius:100px;
+      cursor:pointer;
+      box-shadow:0 0 0 0 rgba(124,108,252,.5);
+      transition:transform .2s,box-shadow .2s,opacity .2s;
+      overflow:hidden;
+    }
+    .btn-play::before{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(135deg,var(--accent2),var(--accent));
+      opacity:0;transition:opacity .25s;
+    }
+    .btn-play:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(124,108,252,.45);opacity:.95}
+    .btn-play:hover::before{opacity:1}
+    .btn-play:active{transform:translateY(0)}
+    .play-circle{
+      position:relative;z-index:1;
+      width:24px;height:24px;border-radius:50%;
+      background:rgba(255,255,255,.2);
+      display:flex;align-items:center;justify-content:center;
+      flex-shrink:0;
+    }
+    .play-circle svg{position:relative;margin-left:2px}
+    .btn-play-label{position:relative;z-index:1;}
   </style>
 </head>
 <body>
@@ -209,7 +242,7 @@
       <div class="proj-name">Casinoverse</div>
       <div class="proj-desc">Immersive VR Casinoverse/Metaverse with Fish-Net multiplayer support. Realistic competitive gameplay on Oculus Quest and PCVR.</div>
       <div class="proj-actions">
-        <button class="btn-play" data-yt="LZfSUADcJS8" data-yt-title="Casinoverse – Gameplay"><svg width="13" height="13" viewBox="0 0 12 12" fill="currentColor"><polygon points="2,1 11,6 2,11"/></svg> Watch Video</button>
+        <button class="btn-play" data-yt="LZfSUADcJS8" data-yt-title="Casinoverse – Gameplay"><span class="play-circle"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="1,0.5 7.5,4.5 1,8.5"/></svg></span><span class="btn-play-label">Watch Video</span></button>
         <a class="proj-link" style="margin-top:0" href="https://drive.google.com/file/d/1Tn8VE21pEA05gyMPO-p9yxXd6iwb7UYP/view" target="_blank" rel="noopener">View Doc &#8594;</a>
       </div>
     </div>
@@ -219,7 +252,7 @@
       <div class="proj-tags"><span class="ptag ptag-amber">Slots</span><span class="ptag ptag-amber">Casino</span><span class="ptag ptag-purple">Unity 2D</span></div>
       <div class="proj-name">Slots Games &mdash; Oppi</div>
       <div class="proj-desc">Developed multiple slot games including Panda Majesty, Pirates of Casino, and Lucky Seven for the Oppi Games platform.</div>
-      <a class="proj-link" href="https://oppigames.com/oppi-games" target="_blank" rel="noopener">View Project &#8594;</a>
+      <a class="proj-link" href="https://oppigames.com" target="_blank" rel="noopener">View Project &#8594;</a>
     </div>
 
     <!-- 3 Metin2 -->
@@ -228,7 +261,7 @@
       <div class="proj-name">Metin2</div>
       <div class="proj-desc">Extensive feature additions and bug fixes to ensure stable and smooth gameplay with Photon/Fusion and Socket.io integration.</div>
       <div class="proj-actions">
-        <button class="btn-play" data-yt="6t6eqonYxxw" data-yt-title="Metin2 – Gameplay"><svg width="13" height="13" viewBox="0 0 12 12" fill="currentColor"><polygon points="2,1 11,6 2,11"/></svg> Watch Video</button>
+        <button class="btn-play" data-yt="6t6eqonYxxw" data-yt-title="Metin2 – Gameplay"><span class="play-circle"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="1,0.5 7.5,4.5 1,8.5"/></svg></span><span class="btn-play-label">Watch Video</span></button>
         <a class="proj-link" style="margin-top:0" href="https://play.metin2.gameforge.com/" target="_blank" rel="noopener">View Project &#8594;</a>
       </div>
     </div>
@@ -351,7 +384,7 @@
       <div class="proj-name">Tile Match Master</div>
       <div class="proj-desc">Engaging tile-matching puzzle game developed with Unity2D featuring match-3 mechanics, level progression, and polished visual effects.</div>
       <div class="proj-actions">
-        <button class="btn-play" data-yt="5nG5p1XczX4" data-yt-title="Tile Match Master"><svg width="13" height="13" viewBox="0 0 12 12" fill="currentColor"><polygon points="2,1 11,6 2,11"/></svg> Watch Video</button>
+        <button class="btn-play" data-yt="5nG5p1XczX4" data-yt-title="Tile Match Master"><span class="play-circle"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="1,0.5 7.5,4.5 1,8.5"/></svg></span><span class="btn-play-label">Watch Video</span></button>
         <a class="proj-link" style="margin-top:0" href="https://play.google.com/store/apps/details?id=com.nsgames.match3Puzzle" target="_blank" rel="noopener">Play Store &#8594;</a>
       </div>
     </div>
@@ -362,7 +395,7 @@
       <div class="proj-name">Snake Warz IO</div>
       <div class="proj-desc">Competitive multiplayer IO-style snake game built with Unity2D — grow your snake, outmaneuver opponents, and dominate the leaderboard.</div>
       <div class="proj-actions">
-        <button class="btn-play" data-yt="TbK_3toovsw" data-yt-title="Snake Warz IO"><svg width="13" height="13" viewBox="0 0 12 12" fill="currentColor"><polygon points="2,1 11,6 2,11"/></svg> Watch Video</button>
+        <button class="btn-play" data-yt="TbK_3toovsw" data-yt-title="Snake Warz IO"><span class="play-circle"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="1,0.5 7.5,4.5 1,8.5"/></svg></span><span class="btn-play-label">Watch Video</span></button>
         <a class="proj-link" style="margin-top:0" href="https://play.google.com/store/apps/details?id=com.nsgames.snake.SP" target="_blank" rel="noopener">Play Store &#8594;</a>
       </div>
     </div>
